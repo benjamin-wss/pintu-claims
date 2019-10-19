@@ -38,12 +38,26 @@ const initialState = {};
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
+// Material UI Deps
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
+const theme = createMuiTheme({
+  zIndex: {
+    appBar: 1200,
+    drawer: 1100,
+  },
+});
+
 const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+          </ThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

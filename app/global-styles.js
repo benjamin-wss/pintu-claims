@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   body.fontLoaded {
